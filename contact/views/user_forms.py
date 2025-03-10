@@ -15,7 +15,7 @@ def register(request):
 
         if form.is_valid():
             form.save()
-            messages.success(request, "Usuário registrado")
+            messages.success(request, "User registered")
             return redirect("contact:index")
 
     return render(
@@ -63,9 +63,9 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             auth.login(request, user)
-            messages.success(request, "Logado com sucesso")
+            messages.success(request, "Logged in")
             return redirect("contact:index")
-        messages.error(request, "Login inválido")
+        messages.error(request, "Invalid credentials")
 
     return render(
         request,
